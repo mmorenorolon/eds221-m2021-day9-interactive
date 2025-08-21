@@ -1,0 +1,64 @@
+---
+title: "Untitled"
+format: html
+---
+```{r}
+library(tidyverse)
+library(kableExtra)
+```
+
+```{r}
+datapasta::df_paste()
+
+whale_sightings <- data.frame(
+  stringsAsFactors = FALSE,
+              date = c("8/12/2014","8/13/2014",
+                       "8/15/2014","8/16/2014","8/16/2014"),
+              site = c("channel", "channel", "harbor", "channel", "channel"),
+               spp = c("unknown", "gray", "gray", "humpback", "gray"),
+            dist_m = c(400L, 200L, 60L, 300L, 150L),
+          behavior = c("breach", "spout", "spout", "feeding", "feeding")
+)
+```
+
+```{r}
+#| echo:  false
+whale_sightings %>% 
+  kableExtra::kable( ##specify column names
+    col.names = c("Date", "Site", "Species",
+                                  "Distance (m)", "Behavior")) %>% 
+  #table themes
+  kableExtra::kable_classic() %>% 
+  #individual aspects
+  
+  #edit look of columns
+  column_spec(1, bold = TRUE, background = "yellow") %>% 
+  
+  column_spec(2, italic = TRUE, background = "orange") %>% 
+  
+  #Creates a header/s above the columns
+  add_header_above(c(" " = 1, "One header" = 2, "Another header" = 2)) %>% 
+  
+  #creates a scroll box (for when tables have a lot of information)
+  scroll_box(height = "100px", width = "700px")
+```
+
+
+whale_sightings %>% 
+  kableExtra::kable( ##specify column names
+    col.names = c("Date", "Site", "Species",
+                                  "Distance (m)", "Behavior")) %>% 
+  #table themes
+  kableExtra::kable_classic() %>% 
+  #individual aspects
+  
+  #edit look of columns
+  column_spec(1, bold = TRUE, background = "yellow") %>% 
+  
+  column_spec(2, italic = TRUE, background = "orange") %>% 
+  
+  #Creates a header/s above the columns
+  add_header_above(c(" " = 1, "One header" = 2, "Another header" = 2)) %>% 
+  
+  #creates a scroll box (for when tables have a lot of information)
+  scroll_box(height = "100px", width = "700px")

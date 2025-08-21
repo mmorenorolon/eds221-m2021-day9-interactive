@@ -2,19 +2,21 @@ library(tidyverse)
 library(palmerpenguins)
 
 
-#plot code with error
+#isolate the code throing the error
 ggplot(penguins_subset, x = flipper_length_mm, y = body_mass_g) +
   geom_point()
 
 #Reprex Steps
-# 1. Create data in code so other people can work with it
+# 1. Create a smaller version of the data in code so other people can work with it
 
-# 2. Subset penguins to just the data I need to reproduce the error
+# Subset the data frame to just the data you need to reproduce the error
+
 penguins_subset <- penguins %>% 
   select(flipper_length_mm, body_mass_g) %>% 
-  slice_head(n = 5)
+  slice_head(n = 5) #first five rows
 
-# 3. Use 'datapasta' so anyone can copy paste the df without having to download it
+# 2. Use 'datapasta' so anyone can copy paste the data frame without having to download it
+
 datapasta::df_paste(penguins_subset)
 
 data.frame(
@@ -22,7 +24,7 @@ data.frame(
         body_mass_g = c(3750L, 3800L, 3250L, NA, 3450L)
 )
 
-# 4. Create a reprex (what will be shared)
+# 3. Create a reprex (what will be shared)
 library(tidyverse)
 
 penguins <- data.frame(
@@ -33,7 +35,7 @@ penguins <- data.frame(
 ggplot(penguins, x = flipper_length_mm, y = body_mass_g) +
     geom_point()
 
-#### Copy the code in step 4 and run reprex() function. When it says Reprex output is on the clipboard, paste the output 
+#### 4. Copy the code in step 3 and run reprex() function. When it says Reprex output is on the clipboard, paste the output 
 ``` r
 library(tidyverse)
 
