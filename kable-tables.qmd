@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "How to make beautiful tables in R"
 format: html
 ---
 ```{r}
